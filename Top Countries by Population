@@ -242,3 +242,6 @@ GROUP BY fertility_rating;
 
 --Which countries have a population over 100 million and a fertility rate over 2.3?
 SELECT name FROM countries GROUP BY name HAVING population >=100000000 AND fertility_rate > 2.3;
+
+--Which countries have positive values of net migrants in the past year?
+SELECT name FROM countries GROUP BY name HAVING net_migrants > 0
