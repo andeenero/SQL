@@ -1,0 +1,39 @@
+/* Frat Pack Demographics */
+
+CREATE TABLE fratpack (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, spouse TEXT, wes_anderson_films INTEGER);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Ben Stiller", 57, "Christine Taylor", 1);
+
+INSERT INTO fratpack (name, age, wes_anderson_films)
+VALUES ("Owen Wilson", 54, 7);
+
+INSERT INTO fratpack (name, age, wes_anderson_films)
+VALUES ("Luke Wilson", 51, 3);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Will Ferrell", 55, "Viveca Paulin", 0);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Steve Carell", 60, "Nancy Walls", 0);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Jack Black", 53, "Tanya Haden", 0);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Paul Rudd", 53, "Julie Yaeger", 0);
+
+INSERT INTO fratpack (name, age, spouse, wes_anderson_films)
+VALUES ("Vince Vaughn", 52, "Kyla Weber", 0);
+
+/* Who has been in the most Wes Anderson films? */
+SELECT name, wes_anderson_films FROM fratpack
+ORDER BY wes_anderson_films desc;
+
+/*Who are the youngest and oldest members of the Frat Pack (order by age)? */
+SELECT name, age FROM fratpack
+ORDER BY age asc;
+
+/*Which members of the Frat Pack are married and to whom? */
+SELECT name, spouse FROM fratpack;
+
