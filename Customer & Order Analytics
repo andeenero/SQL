@@ -47,3 +47,28 @@ ON FEB.orderID=cust.order_id
 WHERE Feb.Quantity>2
 AND length(orderID) = 6 
 AND orderID <> 'Order ID'
+
+#8. List all order dates between 13 and 18 February 2019.
+SELECT orderdate FROM BIT_DB.FebSales
+WHERE orderdate BETWEEN '02/13/19 00:00' AND '02/18/19 00:00';
+
+#9. List the locations of all orders place on 18 February 2019.
+SELECT location FROM BIT_DB.FebSales
+WHERE orderdate = '02/18/19 01:35';
+
+#10. What is the total amount of items sold on 18 February 2019?
+SELECT sum(quantity) FROM BIT_DB.FebSales
+WHERE orderdate like '02/18/19%';
+
+#11. What varieties of batteries does the store sell?
+SELECT DISTINCT Product FROM BIT_DB.FebSales
+WHERE Product LIKE '%Batteries%';
+
+#12. What products have a price ending in .99?
+SELECT DISTINCT Product, Price FROM BIT_DB.FebSales
+WHERE Price LIKE '%.99';
+
+#13. List all the products sold in Los Angeles in February, and include how many of each were sold.
+SELECT Product, sum(quantity) FROM BIT_DB.FebSales
+WHERE location LIKE '%Los Angeles%'
+GROUP BY Product;
