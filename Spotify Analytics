@@ -42,8 +42,16 @@ GROUP BY artist_name
 ORDER BY duration_ms DESC
 LIMIT 1;
 
-#Last, I determined the danceability of the ten most popular songs.
+#Next, I determined the danceability of the ten most popular songs.
 SELECT popularity, track_name, avg(danceability) FROM BIT_DB.Spotifydata
 GROUP BY track_name
 ORDER BY popularity DESC
 LIMIT 10;
+
+#Last, I created a new tag called "Top Star" to denote artists with popularity levels >90.
+WITH popularity_average_CTE AS 
+(SELECT s.artist_name, AVG(s.popularity) AS average_popularity FROM SpotifyData s 
+GROUP BY s.artist_name)
+ 
+SELECT artist_name, average_popularity, 'Top Star' AS tag FROM popularity_average_CTE
+WHERE average_popularity>=90;
